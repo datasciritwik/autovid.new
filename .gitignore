@@ -1,0 +1,6 @@
+__pycache__/
+.venv
+extras/
+*.ipynb
+.env
+planning.md
