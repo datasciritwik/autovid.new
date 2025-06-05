@@ -8,7 +8,7 @@ api_key = os.getenv("GOOGLE_API_KEY")
 if not api_key:
     raise ValueError("GOOGLE_API_KEY environment variable is not set.")
 
-def generate_text(prompt: str, model: str = "gemini-1.5-pro") -> str:
+def generate_text(prompt: str, model: str = "gemini-1.5-flash-8b") -> str:
     """
     Generate text using Google GenAI.
 
@@ -20,5 +20,5 @@ def generate_text(prompt: str, model: str = "gemini-1.5-pro") -> str:
         str: The generated text.
     """
     client = genai.Client(api_key=api_key)
-    response = client.models.generate_content(model=model, prompt=prompt)
+    response = client.models.generate_content(model=model, contents=prompt)
     return response.text
